@@ -9,3 +9,13 @@
 	position: absolute; 
 	width: 1px; 
 }
+
+.trip:nth-child(odd),
+.features:nth-child(odd) {
+	background-color: lightgray;
+}
+
+li {
+	list-style-type: none;
+	display: inline;
+}

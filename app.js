@@ -16,6 +16,10 @@ app.use(bodyParser.json());
 
 app.use(express.static('public'));
 
+app.get('/dashboard', function(req, res) {
+  return res.sendFile('dashboard.html', {root: './public'});
+});
+
 app.use('*', function(req, res) {
   res.status(404).json({message: 'Not found'});
 });

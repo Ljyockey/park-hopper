@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Park Hopper</title>
+	<meta name="viewport" content="width=device-width">
+	<link rel="stylesheet" type="text/css" href="main.css">
+</head>
+<body>
+	<nav>
+		<ul>
+			<li><a href="/">Park Hopper</a></li>
+			<li><a href="#trips" class="scroll">Trips</a></li>
+			<li><a href="#create-new" class="scroll">New</a></li>
+		</ul>
+	</nav>
+
+	<header>
+		<hr>
+		<h1>Dashboard</h1>
+		<p>Here is where you can view your trips and add new ones</p>
+		<hr>
+	</header>
+
+	<main>
+		
+		<section id="trips">
+			<h2>Trips</h2>
+			<div class="trips-container">
+			<!-- Each of these .trip divs will be in a collapsible -->
+				<div class="trip">
+					<h3>Disneyland: 07/16/2017</h3>
+					<p>Crowd index: 8</p>
+					<h4>Rides</h4>
+					<p>Space Mountain, Splash Mountain, foo mountain</p>
+					<h4>Shows/Attractions</h4>
+					<p>foo foo bar bang</p>
+					<h4>Shopping/Dining</h4>
+					<p>Stores and restaurants. Fun and good.</p>
+					<button class="edit">Edit</button>
+					<button class="delete">Delete</button>
+				</div>
+
+				<div class="trip">
+					<h3>Disney's California Adventure: 06/11/2017</h3>
+					<p>Crowd index: 5</p>
+					<h4>Rides</h4>
+					<p>Soarin', Guardians, Fooin'</p>
+					<h4>Shows/Attractions</h4>
+					<p>foo foo bar bang</p>
+					<h4>Shopping/Dining</h4>
+					<p>Stores and restaurants. Fun and good.</p>
+					<button class="edit">Edit</button>
+					<button class="delete">Delete</button>
+				</div>
+
+				<div class="trip">
+					<h3>Park Hopper: 05/25/2017</h3>
+					<p>Crowd index: 7</p>
+					<h4>Rides</h4>
+					<p>All the rides</p>
+					<h4>Shows/Attractions</h4>
+					<p>foo foo bar bang</p>
+					<h4>Shopping/Dining</h4>
+					<p>Stores and restaurants. Fun and good.</p>
+					<button class="edit">Edit</button>
+					<button class="delete">Delete</button>
+				</div>
+			</div>
+		</section>
+
+		<section id="create-new">
+			<h2>New Trip</h2>
+
+			<form>
+
+				<label for="date">Date of Visit</label>
+				<!-- change this to a more browser-friendly format -->
+				<input type="date" name="date"><br>
+
+				<label for="park">Theme Park</label><br>
+				<input type="radio" name="park" id="disneyland"  value="disneyland" required>
+				<label for="disneyland">Disneyland</label>
+				<input type="radio" name="park" id="dca" value="dca">
+				<label for="dca">Disney's California Adventure</label>
+				<input type="radio" name="park" id="hopper" value="hopper">
+				<label for="hopper">Park Hopper</label><br>
+
+				<label for="index">Crowd Index (1-10)</label><br>
+				<input type="number" name="index" required><br>
+
+				<label for="rides">Rides</label><br>
+				<input type="text" name="rides"><br>
+
+				<label for="shows">Shows</label><br>
+				<input type="text" name="shows"><br>
+
+				<label for="shopping-dining">Shopping/Dining</label><br>
+				<input type="text" name="shopping-dining"><br>
+
+				<input type="submit" name="Submit">
+				<input type="reset" value="Reset">
+
+			</form>
+		</section>
+
+	</main>
+
+	<footer>
+		<ul>
+			<li>Made by <a href="http://ljyockey.com">L.J. Yockey</a></li>
+			<li><a href="https://github.com/Ljyockey"><i class="fa fa-github fa-2x" aria-hidden="true"></i><span class="visuallyhidden">GitHub</span></a></li>
+
+			<li><a href="https://twitter.com/Ljyockey"><i class="fa fa-twitter fa-2x" aria-hidden="true"></i><span class="visuallyhidden">Twitter</span></a></li>
+
+			<li><a href="https://medium.com/@Ljyockey"><i class="fa fa-medium fa-2x" aria-hidden="true"></i><span class="visuallyhidden">Medium</span></a></li>
+		</ul>
+	</footer>
+
+<script src="https://use.fontawesome.com/e2a5a772d8.js"></script>
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
+<script type="text/javascript" src="scroll.js"></script>
+
+</body>
+</html>
