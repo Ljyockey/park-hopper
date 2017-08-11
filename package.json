@@ -1,0 +1,25 @@
+{
+  "name": "park-hopper",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "NODE_ENV=test mocha"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.17.2",
+    "express": "^4.15.4",
+    "morgan": "^1.8.2",
+    "pg": "^7.1.0",
+    "pg-hstore": "^2.3.2",
+    "sequelize": "^4.4.2"
+  },
+  "devDependencies": {
+    "chai": "^4.1.1",
+    "chai-http": "^3.0.0",
+    "faker": "^4.1.0",
+    "mocha": "^3.5.0"
+  }
+}
