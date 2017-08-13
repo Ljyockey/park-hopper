@@ -27,55 +27,17 @@
 			<h2>Trips</h2>
 			<div class="trips-container">
 			<!-- Each of these .trip divs will be in a collapsible -->
-				<div class="trip">
-					<h3>Disneyland: 07/16/2017</h3>
-					<p>Crowd index: 8</p>
-					<h4>Rides</h4>
-					<p>Space Mountain, Splash Mountain, foo mountain</p>
-					<h4>Shows/Attractions</h4>
-					<p>foo foo bar bang</p>
-					<h4>Shopping/Dining</h4>
-					<p>Stores and restaurants. Fun and good.</p>
-					<button class="edit">Edit</button>
-					<button class="delete">Delete</button>
-				</div>
-
-				<div class="trip">
-					<h3>Disney's California Adventure: 06/11/2017</h3>
-					<p>Crowd index: 5</p>
-					<h4>Rides</h4>
-					<p>Soarin', Guardians, Fooin'</p>
-					<h4>Shows/Attractions</h4>
-					<p>foo foo bar bang</p>
-					<h4>Shopping/Dining</h4>
-					<p>Stores and restaurants. Fun and good.</p>
-					<button class="edit">Edit</button>
-					<button class="delete">Delete</button>
-				</div>
-
-				<div class="trip">
-					<h3>Park Hopper: 05/25/2017</h3>
-					<p>Crowd index: 7</p>
-					<h4>Rides</h4>
-					<p>All the rides</p>
-					<h4>Shows/Attractions</h4>
-					<p>foo foo bar bang</p>
-					<h4>Shopping/Dining</h4>
-					<p>Stores and restaurants. Fun and good.</p>
-					<button class="edit">Edit</button>
-					<button class="delete">Delete</button>
-				</div>
 			</div>
 		</section>
 
 		<section id="create-new">
 			<h2>New Trip</h2>
 
-			<form>
+			<form class="new-trip">
 
 				<label for="date">Date of Visit</label>
 				<!-- change this to a more browser-friendly format -->
-				<input type="date" name="date"><br>
+				<input type="text" name="date" id="date" required><br>
 
 				<label for="park">Theme Park</label><br>
 				<input type="radio" name="park" id="disneyland"  value="disneyland" required>
@@ -96,6 +58,9 @@
 
 				<label for="shopping-dining">Shopping/Dining</label><br>
 				<input type="text" name="shopping-dining"><br>
+
+				<label for="other">Other Notes</label><br>
+				<input type="text" name="other"><br>
 
 				<input type="submit" name="Submit">
 				<input type="reset" value="Reset">
@@ -118,7 +83,9 @@
 
 <script src="https://use.fontawesome.com/e2a5a772d8.js"></script>
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
 <script type="text/javascript" src="scroll.js"></script>
+<script type="text/javascript" src="dashboard.js"></script>
 
 </body>
 </html>
