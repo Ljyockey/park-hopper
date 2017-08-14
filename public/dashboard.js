@@ -26,27 +26,27 @@ var mockData = [{
   other: 'best to do as much as possible in one park before hopping to other'
 }];
 
-function displayEntries(data) {
-  const entriesHtml = data.map(function(item, index) {
-    return `<div class="trip" data-index="${index}">
-                    <h3>${item.park}: ${item.date}</h3>
+function displayTrips(data) {
+  const entriesHtml = data.trips.map(function(item) {
+    return `<div class="trip" data-index="${item.id}">
+                    <h3>${item.park}: ${item.dateOfVisit}</h3>
 
                     <p>Crowd index: ${item.crowdIndex}</p>
                     <form class="put-form">
                         <label for="rides"><h4>Rides</h4></label>
-                        <p class="no-form">${item.rides}</p>
+                        <p class="rides no-form">${item.rides}</p>
                         <input class="edit-form" type="text" name="rides" value="${item.rides}">
 
                         <label for="shows"><h4>Shows/Attractions</h4></label>
-                        <p class="no-form">${item.shows}</p>
+                        <p class="shows no-form">${item.shows}</p>
                         <input class="edit-form" type="text" name="shows" value="${item.shows}">
 
                         <label for="shopping-dining"><h4>Shopping/Dining</h4></label>
-                        <p class="no-form">${item.shoppingDining}</p>
+                        <p class="shopping-dining no-form">${item.shoppingDining}</p>
                         <input class="edit-form" type="text" name="shopping-dining" value="${item.shoppingDining}">
 
                         <label for="other"><h4>Other Notes</h4></label>
-                        <p class="no-form">${item.other}</p>
+                        <p class="other no-form">${item.other}</p>
                         <input class="edit-form" type="text" name="other" value="${item.other}"><br>
 
                         <input type="submit" class="edit-form submit" value="Submit All Changes">
@@ -58,7 +58,10 @@ function displayEntries(data) {
                 </div>`;
   });
 
-  $('.trips-container').html(entriesHtml);
+  $('.trips-container').is(':empty') ? 
+    $('.trips-container').html(entriesHtml) 
+    :
+    $('.trips-container').append(entriesHtml);
 }
 
 function editClicked() {
@@ -75,22 +78,28 @@ function putRequest() {
     e.preventDefault();
     const button = $(this).children('.submit');
     const index = $(this).parents('.trip').attr('data-index');
-    const rides = ($('input[name=rides]').val());
-    const shows = ($('input[name=shows]').val());
-    const shoppingDining = ($('input[name=shopping-dining]').val());
-    const other = ($('input[name=other]').val());
-    mockData[index].rides = rides;
-    mockData[index].shows = shows;
-    mockData[index].shoppingDining = shoppingDining;
-    mockData[index].other = other;
+    const rides = ($(this).children('input[name=rides]').val());
+    const shows = ($(this).children('input[name=shows]').val());
+    const shoppingDining = ($(this).children('input[name=shopping-dining]').val());
+    const other = ($(this).children('input[name=other]').val());
     const newValues = {
       rides,
       shows,
       shoppingDining,
       other
     };
-    displayEntries(mockData);
+    $(this).children('.rides').text(rides);
+    $(this).children('.shows').text(shows);
+    $(this).children('.shopping-dining').text(shoppingDining);
+    $(this).children('.other').text(other);
     //PUT route
+    $.ajax({
+      url: (`/trips/${index}`),
+      type: 'PUT',
+      data: JSON.stringify(newValues),
+      dataType: 'json', 
+      contentType: 'application/json'
+    });
     removeForm(button);
   });
 }
@@ -111,7 +120,11 @@ function cancelClicked() {
 function deleteClicked() {
   $('.trips-container').on('click', '.delete', function() {
     const index = ($(this).parents('.trip').attr('data-index'));
-    // add delete route using index
+    var query = {
+      url: `/trips/${index}`,
+      type: 'DELETE'
+    };
+    $.ajax(query);
     const item = ($(this).parents('.trip'));
     item.remove();
   });
@@ -122,20 +135,41 @@ function newTrip() {
     e.preventDefault();
     const newTrip = {
       park: ($('input[name=park]:checked').next('label').text()),
-      date: ($('input[name=date]').val()),
+      dateOfVisit: ($('input[name=date]').val()),
       crowdIndex: ($('input[name=index]').val()),
-      rides: ($('input[name=rides]').val()),
-      shows: ($('input[name=shows]').val()),
-      shoppingDining: ($('input[name=shopping-dining]').val()),
-      other: ($('input[name=other]').val())
+      rides: ($('.post[name=rides]').val()),
+      shows: ($('.post[name=shows]').val()),
+      shoppingDining: ($('.post[name=shopping-dining]').val()),
+      other: ($('.post[name=other]').val())
     };
-    mockData.push(newTrip);
-    displayEntries(mockData);
+    $.ajax({
+      url: ('/trips'),
+      type: 'POST',
+      data: JSON.stringify(newTrip),
+      success: function(data) {
+        //update DOM with new item
+        var newPost = {
+          trips: [data]
+        };
+        return displayTrips(newPost);
+      },
+      dataType: 'json',
+      contentType: 'application/json'
+    });
   });
 }
 
+function getTrips(callback) {
+  var query = {
+    url: '/trips',
+    type: 'GET',
+    success: callback
+  };
+  $.ajax(query);
+}
+
 $(function() {  
-  displayEntries(mockData);
+  getTrips(displayTrips);
   $('#date').datepicker();
   newTrip();
   editClicked();
