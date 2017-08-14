@@ -4,6 +4,7 @@
 	<title>Park Hopper</title>
 	<meta name="viewport" content="width=device-width">
 	<link rel="stylesheet" type="text/css" href="main.css">
+	<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
 </head>
 <body>
 	<nav>
@@ -48,7 +49,7 @@
 				<label for="hopper">Park Hopper</label><br>
 
 				<label for="index">Crowd Index (1-10)</label><br>
-				<input type="number" name="index" required><br>
+				<input type="number" min="1" max="10" name="index" required><br>
 
 				<label for="rides">Rides</label><br>
 				<input type="text" name="rides"><br>

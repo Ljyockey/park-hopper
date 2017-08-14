@@ -5,14 +5,14 @@ const express = require('express');
 const morgan = require('morgan');
 const router = express.Router();
 
-//require routes once they're made
+const tripsRouter = require('./routes/trips');
 
 const app = express();
 
 app.use(morgan('common'));
 app.use(bodyParser.json());
 
-//app.use('/route', routeVariable);
+app.use('/trips', tripsRouter);
 
 app.use(express.static('public'));
 
