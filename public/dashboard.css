@@ -5,6 +5,19 @@ nav a {
     font-size: 18px;
 }
 
+#home {
+    font-family: 'WaltographRegular', cursive;
+    border: none;
+    font-size: 32px;
+    margin-left: 0;
+}
+
+#home:hover, #home:focus {
+    text-decoration: none;
+    color:white;
+    background-color: inherit;
+}
+
 h1 {
     font-size: 75px;
 }
@@ -74,6 +87,11 @@ h4 {
 
 .new-trip label {
     font-size: 21px;
+}
+
+#small {
+    font-size: 16px;
+    margin-bottom: 0;
 }
 
 .label-margin {

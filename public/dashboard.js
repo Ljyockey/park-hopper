@@ -108,6 +108,7 @@ function deleteClicked() {
 function newTrip() {
   $('.new-trip').submit(function(e) {
     e.preventDefault();
+    const c = '';
     const newTrip = {
       park: ($('input[name=park]:checked').next('label').text()),
       dateOfVisit: ($('input[name=date]').val()),
@@ -117,6 +118,12 @@ function newTrip() {
       shoppingDining: ($('.post[name=shopping-dining]').val()),
       other: ($('.post[name=other]').val())
     };
+    $('input[name=date]').val(c);
+    $('input[name=index]').val(c);
+    $('.post[name=rides]').val(c);
+    $('.post[name=shows]').val(c);
+    $('.post[name=shopping-dining]').val(c);
+    $('.post[name=other]').val(c);
     $.ajax({
       url: ('/trips'),
       type: 'POST',
@@ -126,7 +133,9 @@ function newTrip() {
         var newPost = {
           trips: [data]
         };
-        return displayTrips(newPost);
+        displayTrips(newPost);
+        $('html, body').animate({
+          scrollTop: $(`#${data.id}`).offset().top-50}, 800);
       },
       dataType: 'json',
       contentType: 'application/json'
