@@ -3,62 +3,80 @@
 <head>
 	<title>Park Hopper</title>
 	<meta name="viewport" content="width=device-width">
+	<link rel="stylesheet" media="screen" href="https://fontlibrary.org/face/waltograph" type="text/css"/>
+	<link href="https://fonts.googleapis.com/css?family=Saira+Semi+Condensed" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="grid.css">
 	<link rel="stylesheet" type="text/css" href="main.css">
+	<link rel="stylesheet" type="text/css" href="index.css">
 </head>
 <body>
 	<nav>
-		<ul>
-			<li><a href="#about" class="scroll">About</a></li>
-			<li><a href="#tracker" class="scroll">Tracker</a></li>
-			<li><a href="#coming-soon" class="scroll">Coming Soon</a></li>
-			<li><a href="/dashboard">Demo</a></li>
-		</ul>
+		<div class="row">
+			<ul class="col-12">
+				<li><a href="#about" class="scroll">About</a></li>
+				<li><a href="#tracker" class="scroll">Tracker</a></li>
+				<li><a href="#coming-soon" class="scroll">Coming Soon</a></li>
+				<li><a href="/dashboard">Demo</a></li>
+			</ul>
+		</div>
 	</nav>
 
-	<header>
-		<h1>Park Hopper</h1>
-		<p>Track the Magic.</p>
-		<a href="/dashboard">View the Demo</a>
+	<header class="landing-header">
+		<div class="row">
+			<div class="col-12">
+				<h1>Park Hopper</h1>
+				<p>Track the Magic.</p>
+				<a class="cta" href="/dashboard">View the Demo</a>
+			</div>
+		</div>
 	</header>
 
-	<main>
+	<main class="row">
 		
-		<section id="about" class="features">
-			<h2>Capture the Experience</h2>
-			<p>With Park Hopper, keep your theme park visits organized.
-			Figure out the best times to visit and keep track of your favorite actvities.</p>
+		<section id="about" class="features col-6">
+			<div class="features-inner">
+				<h2>Capture the Experience</h2>
+				<p>With Park Hopper, keep your Disneyland Resort visits organized.
+				Figure out the best times to visit and keep track of your favorite actvities.</p>
+			</div>
 		</section>
 
-		<section id="tracker" class="features">
-			<h2>Track Your Visits</h2>
-			<p>Keep a journal of rides, shows, restaurants and more. Crowd index
-			will help you determine the best and worst times to visit based on your
-			own experiences and preferences.</p>
+		<section id="tracker" class="features col-6">
+			<div class="features-inner">
+				<h2>Track Your Trips</h2>
+				<p>Keep a journal of rides, shows, restaurants and more. Crowd index
+				will help you determine the best and worst times to visit based on your
+				own experiences and preferences.</p>
+			</div>
 		</section>
 
-		<section id="coming-soon" class="features">
-			<h2>Coming Soon</h2>
-			<p>We are constantly working to make the Park Hopper experience even better.
-			Upcoming improvments include:</p>
-			<ul>
-				<li>User accounts</li>
-				<li>More theme parks</li>
-				<li>Character Meet & Greets</li>
-			</ul>
-			<p>Have a sugestion? Feel free to <a href="mailto:linyockey@gmail.com">email me</a>.</p>
+		<section id="coming-soon" class="features row">
+			<div class="col-12 features-inner">
+				<h2>Coming Soon</h2>
+				<p>We are constantly working to make the Park Hopper experience even better.
+				Upcoming improvements include:</p>
+				<ul>
+					<li>User accounts</li>
+					<li>More theme parks</li>
+					<li>Character Meet & Greets</li>
+				</ul>
+				<p>Questions? Suggestions? Feel free to <a href="mailto:linyockey@gmail.com">email me</a>.</p>
+			</div>
 		</section>
 
 	</main>
 
 	<footer>
-		<ul>
-			<li>Made by <a href="http://ljyockey.com">L.J. Yockey</a></li>
-			<li><a href="https://github.com/Ljyockey"><i class="fa fa-github fa-2x" aria-hidden="true"></i><span class="visuallyhidden">GitHub</span></a></li>
+		<div class="row">
+			<ul class="col-12">
+				<li>Made by <a href="http://ljyockey.com" target="blank" rel="noopener noreferrer">L.J. Yockey</a></li>
+				<li><a href="https://github.com/Ljyockey/park-hopper" target="blank" rel="noopener noreferrer"><i class="fa fa-github fa-2x" aria-hidden="true"></i><span class="visuallyhidden">GitHub</span></a></li>
 
-			<li><a href="https://twitter.com/Ljyockey"><i class="fa fa-twitter fa-2x" aria-hidden="true"></i><span class="visuallyhidden">Twitter</span></a></li>
+				<li><a href="https://twitter.com/Ljyockey" target="blank" rel="noopener noreferrer"><i class="fa fa-twitter fa-2x" aria-hidden="true"></i><span class="visuallyhidden">Twitter</span></a></li>
 
-			<li><a href="https://medium.com/@Ljyockey"><i class="fa fa-medium fa-2x" aria-hidden="true"></i><span class="visuallyhidden">Medium</span></a></li>
-		</ul>
+				<li><a href="https://medium.com/@Ljyockey" target="blank" rel="noopener noreferrer"><i class="fa fa-medium fa-2x" aria-hidden="true"></i><span class="visuallyhidden">Medium</span></a></li>
+			</ul>
+		</div>
 	</footer>
 
 <script src="https://use.fontawesome.com/e2a5a772d8.js"></script>

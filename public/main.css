@@ -1,5 +1,41 @@
-.edit-form {
-	display: none;
+body {
+	margin: 0;
+	font-family: 'Saira Semi Condensed', sans-serif;
+	background-color: black;
+	color: white;
+}
+
+h1, h2 {
+	text-align: center;
+}
+
+h1, h2, h3, h4 {
+	font-family: 'WaltographRegular', cursive;
+	font-weight: normal;
+	font-style: normal;
+	font-size: 42px;
+}
+
+nav, footer {
+	background-color: #8884FF;
+}
+
+nav a, footer a {
+	color: white;
+}
+
+nav a:hover, nav a:focus,
+footer a:hover, footer a:focus {
+	color: black;
+}
+
+nav a {
+	border-radius: 80%;
+}
+
+nav a:hover, nav a:focus {
+	color: #8884FF;
+	background-color: white;
 }
 
 .visuallyhidden { 
@@ -13,12 +49,21 @@
 	width: 1px; 
 }
 
-.trip:nth-child(odd),
-.features:nth-child(odd) {
-	background-color: lightgray;
+nav li, footer li {
+	list-style-type: none;
+	display: inline-block;
 }
 
-li {
-	list-style-type: none;
-	display: inline;
+footer {
+	font-size: 18px;
+}
+
+footer ul {
+	padding-left: 0;
+}
+
+@media only screen and (min-width: 640px) {
+	footer li {
+		margin-left: 15px;
+	}
 }

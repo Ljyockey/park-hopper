@@ -1,0 +1,86 @@
+nav a {
+    margin-left: 2px;
+	padding: 2px;
+	border: 2px solid white;
+}
+
+header {
+    margin-bottom: 30px;
+}
+
+.landing-header {
+    background: linear-gradient(
+        rgba(0, 0, 0, 0.4),
+        rgba(0, 0, 0, 0.4)
+        ),
+        url('img/castle-xmas.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 600px;
+    text-align: center;
+}
+
+h1 {
+	font-size: 100px;
+}
+
+.landing-header p {
+    font-size: 32px;
+}
+
+.cta {
+    background-color: #8884FF;
+    color: white;
+    padding: 5px;
+    font-size: 22px;
+}
+
+.cta:hover, .cta:focus {
+    background-color: white;
+    color: #8884FF;
+}
+
+.features {
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+.features-inner {
+    border: 1px solid white;
+    border-radius: 2%;
+    padding: 10px;
+    min-height: 255px;
+}
+
+#coming-soon li {
+    list-style-type: none;
+}
+
+#coming-soon a {
+    color: #8884FF;
+}
+
+#coming-soon a:hover,
+#coming-soon a:focus {
+    color: white;
+}
+
+@media only screen and (min-width: 640px) {
+    .landing-header {
+        height: 800px;
+    }
+
+    nav a {
+        margin-left: 10px;
+        padding: 5px;
+        font-size: 18px;
+    }
+
+    header {
+        margin-bottom: 50px;
+    }
+
+    .features-inner p {
+        font-size: 18px;
+    }
+}

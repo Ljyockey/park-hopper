@@ -3,83 +3,91 @@
 <head>
 	<title>Park Hopper</title>
 	<meta name="viewport" content="width=device-width">
-	<link rel="stylesheet" type="text/css" href="main.css">
+	<link rel="stylesheet" media="screen" href="https://fontlibrary.org/face/waltograph" type="text/css"/>
+	<link href="https://fonts.googleapis.com/css?family=Saira+Semi+Condensed" rel="stylesheet">
 	<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
+	<link rel="stylesheet" type="text/css" href="grid.css">
+	<link rel="stylesheet" type="text/css" href="main.css">
+	<link rel="stylesheet" type="text/css" href="dashboard.css">
+
 </head>
 <body>
 	<nav>
-		<ul>
-			<li><a href="/">Park Hopper</a></li>
-			<li><a href="#trips" class="scroll">Trips</a></li>
-			<li><a href="#create-new" class="scroll">New</a></li>
-		</ul>
+		<div class="row">
+			<ul class="col-12">
+				<li><a href="/">Park Hopper</a></li>
+				<li><a href="#trips" class="scroll">Trips</a></li>
+				<li><a href="#create-new" class="scroll">New</a></li>
+			</ul>
+		</div>
 	</nav>
 
-	<header>
-		<hr>
-		<h1>Dashboard</h1>
-		<p>Here is where you can view your trips and add new ones</p>
-		<hr>
+	<header class="row">
+		<div class="col-12">
+			<h1>Dashboard</h1>
+			<p>View your trips and add new ones</p>
+		</div>
 	</header>
 
 	<main>
 		
-		<section id="trips">
+		<section id="trips" class="row">
 			<h2>Trips</h2>
-			<div class="trips-container">
-			<!-- Each of these .trip divs will be in a collapsible -->
-			</div>
+			<div class="trips-container js-accordion col-12" data-accordion-prefix-classes="t-display"></div>
 		</section>
 
-		<section id="create-new">
-			<h2>New Trip</h2>
+		<section id="create-new" class="row">
+			<div class="col-12">
+				<h2>New Trip</h2>
 
-			<form class="new-trip">
+				<form class="new-trip">
 
-				<label for="date">Date of Visit</label>
-				<!-- change this to a more browser-friendly format -->
-				<input type="text" name="date" id="date" required><br>
+					<label for="date">Date of Visit:</label>
+					<input type="text" name="date" id="date" required><br>
 
-				<label for="park">Theme Park</label><br>
-				<input type="radio" name="park" id="disneyland"  value="disneyland" required>
-				<label for="disneyland">Disneyland</label>
-				<input type="radio" name="park" id="dca" value="dca">
-				<label for="dca">Disney's California Adventure</label>
-				<input type="radio" name="park" id="hopper" value="hopper">
-				<label for="hopper">Park Hopper</label><br>
+					<label for="park" class="label-margin">Theme Park:</label><br>
+					<input type="radio" name="park" id="disneyland"  value="disneyland" required>
+					<label for="disneyland">Disneyland</label><br>
+					<input type="radio" name="park" id="dca" value="dca">
+					<label for="dca">Disney's California Adventure</label><br>
+					<input type="radio" name="park" id="hopper" value="hopper">
+					<label for="hopper">Park Hopper:</label><br>
 
-				<label for="index">Crowd Index (1-10)</label><br>
-				<input type="number" min="1" max="10" name="index" required><br>
+					<label for="index" class="label-margin">Crowd Index (1-10):</label>
+					<input type="number" min="1" max="10" name="index" required><br>
 
-				<label for="rides">Rides</label><br>
-				<input type="text" class="post" name="rides"><br>
+					<label for="rides" class="label-margin">Rides:</label><br>
+					<textarea class="post large-box" name="rides"></textarea><br>
 
-				<label for="shows">Shows</label><br>
-				<input type="text" class="post" name="shows"><br>
+					<label for="shows" class="label-margin">Shows:</label><br>
+					<textarea class="post large-box" name="shows"></textarea><br>
 
-				<label for="shopping-dining">Shopping/Dining</label><br>
-				<input type="text" class="post" name="shopping-dining"><br>
+					<label for="shopping-dining" class="label-margin">Shopping/Dining:</label><br>
+					<textarea class="post large-box" name="shopping-dining"></textarea><br>
 
-				<label for="other">Other Notes</label><br>
-				<input type="text" class="post" name="other"><br>
+					<label for="other" class="label-margin">Other Notes:</label><br>
+					<textarea id="bottom" class="post large-box" name="other"></textarea><br>
 
-				<input type="submit" name="Submit">
-				<input type="reset" value="Reset">
+					<input type="submit" class="form-button" name="Submit">
+					<input type="reset" class="form-button reset" value="Reset">
 
-			</form>
+				</form>
+			</div>
 		</section>
 
 	</main>
 
 	<footer>
-		<ul>
-			<li>Made by <a href="http://ljyockey.com">L.J. Yockey</a></li>
-			<li><a href="https://github.com/Ljyockey"><i class="fa fa-github fa-2x" aria-hidden="true"></i><span class="visuallyhidden">GitHub</span></a></li>
+		<div class="row">
+			<ul class="col-12">
+				<li>Made by <a href="http://ljyockey.com" target="blank" rel="noopener noreferrer">L.J. Yockey</a></li>
+				<li><a href="https://github.com/Ljyockey/park-hopper" target="blank" rel="noopener noreferrer"><i class="fa fa-github fa-2x" aria-hidden="true"></i><span class="visuallyhidden">GitHub</span></a></li>
 
-			<li><a href="https://twitter.com/Ljyockey"><i class="fa fa-twitter fa-2x" aria-hidden="true"></i><span class="visuallyhidden">Twitter</span></a></li>
+				<li><a href="https://twitter.com/Ljyockey" target="blank" rel="noopener noreferrer"><i class="fa fa-twitter fa-2x" aria-hidden="true"></i><span class="visuallyhidden">Twitter</span></a></li>
 
-			<li><a href="https://medium.com/@Ljyockey"><i class="fa fa-medium fa-2x" aria-hidden="true"></i><span class="visuallyhidden">Medium</span></a></li>
-		</ul>
+				<li><a href="https://medium.com/@Ljyockey" target="blank" rel="noopener noreferrer"><i class="fa fa-medium fa-2x" aria-hidden="true"></i><span class="visuallyhidden">Medium</span></a></li>
+			</ul>
+		</div>
 	</footer>
 
 <script src="https://use.fontawesome.com/e2a5a772d8.js"></script>

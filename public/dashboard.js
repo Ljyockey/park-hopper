@@ -1,67 +1,40 @@
-var mockData = [{
-  park: 'Disneyland',
-  date: '06-17-2017',
-  crowdIndex: 5,
-  rides: 'Space Mountain, Matterhorn, Splash Mountain',
-  shows: 'Fantasmic',
-  shoppingDining: 'French Market',
-  other: 'Tomorrowland was much slower at the end of the day because of Fantasmic and fireworks'
-},
-{
-  park: 'Disney\'s California Adventure',
-  date: '06-18-2017',
-  crowdIndex: 4,
-  rides: 'Soarin, Guardians, Midway Mania',
-  shows: 'World of Color',
-  shoppingDining: 'Sonoma Terrace, Five and Dime',
-  other: 'fastpasses went quickly for Guardians. Need to get there sooner'
-},
-{
-  park: 'Park Hopper',
-  date: '06-19-2017',
-  crowdIndex: 6,
-  rides: 'Space Mountain, Matterhorn, Splash Mountain, Soarin, Midway Mania',
-  shows: 'Fantasmic, World of Color',
-  shoppingDining: 'French Market, Sonoma Terrace',
-  other: 'best to do as much as possible in one park before hopping to other'
-}];
-
 function displayTrips(data) {
   const entriesHtml = data.trips.map(function(item) {
-    return `<div class="trip" data-index="${item.id}">
-                    <h3>${item.park}: ${item.dateOfVisit}</h3>
+    return         `<h3 class="js-accordion__header trip-header" id="${item.id}">${item.park}: ${item.dateOfVisit}</h3>
+                    <div class="js-accordion__panel content trip" data-index="${item.id}">
+                      <p>Crowd index: ${item.crowdIndex}</p>
+                      <form class="put-form">
+                          <label for="rides"><h4>Rides</h4></label>
+                          <p class="rides no-form">${item.rides}</p>
+                          <textarea class="edit-form large-box" name="rides">${item.rides}</textarea>
 
-                    <p>Crowd index: ${item.crowdIndex}</p>
-                    <form class="put-form">
-                        <label for="rides"><h4>Rides</h4></label>
-                        <p class="rides no-form">${item.rides}</p>
-                        <input class="edit-form" type="text" name="rides" value="${item.rides}">
+                          <label for="shows"><h4>Shows/Attractions</h4></label>
+                          <p class="shows no-form">${item.shows}</p>
+                          <textarea class="edit-form large-box" name="shows">${item.shows}</textarea>
 
-                        <label for="shows"><h4>Shows/Attractions</h4></label>
-                        <p class="shows no-form">${item.shows}</p>
-                        <input class="edit-form" type="text" name="shows" value="${item.shows}">
+                          <label for="shopping-dining"><h4>Shopping/Dining</h4></label>
+                          <p class="shopping-dining no-form">${item.shoppingDining}</p>
+                          <textarea class="edit-form large-box" name="shopping-dining">${item.shoppingDining}</textarea>
 
-                        <label for="shopping-dining"><h4>Shopping/Dining</h4></label>
-                        <p class="shopping-dining no-form">${item.shoppingDining}</p>
-                        <input class="edit-form" type="text" name="shopping-dining" value="${item.shoppingDining}">
+                          <label for="other"><h4>Other Notes</h4></label>
+                          <p class="other no-form">${item.other}</p>
+                          <textarea id="bottom" class="edit-form large-box" name="other">${item.other}</textarea><br>
 
-                        <label for="other"><h4>Other Notes</h4></label>
-                        <p class="other no-form">${item.other}</p>
-                        <input class="edit-form" type="text" name="other" value="${item.other}"><br>
-
-                        <input type="submit" class="edit-form submit" value="Submit All Changes">
-                        <button class="cancel edit-form">Cancel</button>
-                        <button class="edit no-form">Edit</button>
-                        </form>
-                        <button class="delete">Delete</button>
-                    
-                </div>`;
+                          <input type="submit" class="edit-form submit form-button" value="Submit All Changes">
+                          <button class="cancel edit-form form-button">Cancel</button>
+                          <button class="edit no-form form-button">Edit</button>
+                          </form>
+                          <button class="delete form-button">Delete Trip</button>
+                    </div>`;
   });
 
-  $('.trips-container').is(':empty') ? 
-    $('.trips-container').html(entriesHtml) 
-    :
+  if ($('.trips-container').is(':empty')) { 
+    $('.trips-container').html(entriesHtml);
+    $('.trips-container').accordion({collapsible: true, active: 'none', heightStyle: 'content'}); 
+  } else {
     $('.trips-container').append(entriesHtml);
+    $('.trips-container').accordion('refresh');
+  }
 }
 
 function editClicked() {
@@ -78,10 +51,10 @@ function putRequest() {
     e.preventDefault();
     const button = $(this).children('.submit');
     const index = $(this).parents('.trip').attr('data-index');
-    const rides = ($(this).children('input[name=rides]').val());
-    const shows = ($(this).children('input[name=shows]').val());
-    const shoppingDining = ($(this).children('input[name=shopping-dining]').val());
-    const other = ($(this).children('input[name=other]').val());
+    const rides = ($(this).children('textarea[name=rides]').val());
+    const shows = ($(this).children('textarea[name=shows]').val());
+    const shoppingDining = ($(this).children('textarea[name=shopping-dining]').val());
+    const other = ($(this).children('textarea[name=other]').val());
     const newValues = {
       rides,
       shows,
@@ -125,7 +98,9 @@ function deleteClicked() {
       type: 'DELETE'
     };
     $.ajax(query);
+    const header = $(this).parents().siblings(`#${index}`);
     const item = ($(this).parents('.trip'));
+    header.remove();
     item.remove();
   });
 }
