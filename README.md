@@ -28,7 +28,7 @@ Then open [`localhost:8080`](http://localhost:8080) in a browser.
 <img src="public/img/readme/new-trip.png" width="50%" height="auto">
 <p>Add a new trip for every visit. Basic information can be added like the date, crowd index, rides, shows, and shopping/dining.</p>
 <h3>Edit and Delete Trips</h3>
-<img src="public/img/readme/edit-delete.png" height="50%" width="auto">
+<img src="public/img/readme/edit-delete.png" height="25%" width="auto">
 <p>Most fields in a trip can be edited. Trips can also be deleted.</p>
 
 <h2>Technology</h2>
