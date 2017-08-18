@@ -5,6 +5,10 @@ body {
 	color: white;
 }
 
+header {
+	padding-top: 50px;
+}
+
 h1, h2 {
 	text-align: center;
 }
@@ -20,6 +24,27 @@ nav, footer {
 	background-color: #8884FF;
 }
 
+nav {
+	position: fixed;
+	width: 100%;
+	z-index: 10;
+}
+
+nav a {
+    margin-left: 5px;
+	font-size: 16px;
+	text-decoration: none;
+	text-transform: uppercase;
+}
+
+nav li::after {
+	content: ' | ';
+}
+
+nav li:last-child::after {
+	content: '';
+}
+
 nav a, footer a {
 	color: white;
 }
@@ -31,11 +56,6 @@ footer a:hover, footer a:focus {
 
 nav a {
 	border-radius: 80%;
-}
-
-nav a:hover, nav a:focus {
-	color: #8884FF;
-	background-color: white;
 }
 
 .visuallyhidden { 
@@ -63,6 +83,11 @@ footer ul {
 }
 
 @media only screen and (min-width: 640px) {
+
+    nav a {
+        margin-left: 20px;
+	}
+	
 	footer li {
 		margin-left: 15px;
 	}

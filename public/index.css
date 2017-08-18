@@ -1,7 +1,5 @@
 nav a {
-    margin-left: 2px;
-	padding: 2px;
-	border: 2px solid white;
+    font-size: 14px;
 }
 
 header {
@@ -25,14 +23,16 @@ h1 {
 }
 
 .landing-header p {
-    font-size: 32px;
+    font-size: 40px;
+    font-weight: bold;
 }
 
 .cta {
     background-color: #8884FF;
     color: white;
     padding: 5px;
-    font-size: 22px;
+    font-size: 32px;
+    border-radius: 2%;
 }
 
 .cta:hover, .cta:focus {
@@ -45,9 +45,12 @@ h1 {
     margin-bottom: 10px;
 }
 
+h2 {
+    text-align: left;
+    border-bottom: 4px solid white;
+}
+
 .features-inner {
-    border: 1px solid white;
-    border-radius: 2%;
     padding: 10px;
     min-height: 255px;
 }
@@ -68,6 +71,14 @@ h1 {
 @media only screen and (min-width: 640px) {
     .landing-header {
         height: 800px;
+    }
+
+    .landing-header p {
+        font-size: 56px;
+    }
+
+    .landing-header a {
+        font-size: 40px;
     }
 
     nav a {
